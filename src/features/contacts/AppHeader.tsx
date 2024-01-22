@@ -24,9 +24,9 @@ export const AppHeader = () => {
               <button type="submit">New</button>
             </form>
           </div>
+          <ContactsList />
         </div>
       </header>
-      <ContactsList />
     </>
   )
 }
