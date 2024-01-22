@@ -10,6 +10,7 @@ import { ContactDetail } from "./features/contacts/ContactDetail"
 import { AddContactForm } from "./features/contacts/ContactForm"
 import { EditContactForm } from "./features/contacts/EditContactForm"
 import { ContactsList } from "./features/contacts/ContactsList"
+import { RootLayout } from "./features/contacts/RootLayout"
 
 import "./index.css"
 
@@ -19,12 +20,14 @@ const router = createBrowserRouter([
     element: <App />,
     errorElement: <ErrorPage />,
     children: [
+      { index: true, element: <RootLayout /> },
       {
         path: "new",
         element: <AddContactForm />,
       },
       {
         path: "contacts",
+        errorElement: <ErrorPage />,
         children: [
           {
             index: true,
