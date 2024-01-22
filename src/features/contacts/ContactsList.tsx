@@ -1,5 +1,6 @@
 import React from "react"
 import { useAppSelector } from "../../app/hooks"
+import { Link } from "react-router-dom"
 
 export const ContactsList = () => {
   const contacts = useAppSelector(state => state.contactList)
@@ -8,12 +9,10 @@ export const ContactsList = () => {
     <aside className="contacts-list">
       <ol>
         {contacts.map(contact => (
-          <li>
-            <article className="contacts" key={contact.id}>
+          <li key={contact.id}>
+            <Link to={`/contacts/${contact.id}`} className="contacts">
               <h3>{contact.name}</h3>
-              <p className="contacts-content">{contact.email}</p>
-              <p className="contacts-content">{contact.phone}</p>
-            </article>
+            </Link>
           </li>
         ))}
       </ol>

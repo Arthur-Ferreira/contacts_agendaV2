@@ -1,7 +1,7 @@
 import React from "react"
+import { Outlet } from 'react-router-dom'
 
 import { AppHeader } from "./features/contacts/AppHeader"
-import { AddContactForm } from "./features/contacts/ContactForm"
 
 import "./App.css"
 
@@ -9,7 +9,7 @@ const App = () => {
   return (
     <>
       <AppHeader />
-      <AddContactForm />
+      <Outlet />
     </>
   )
 }

@@ -1,4 +1,21 @@
-# vite-template-redux
+# Contacts App v2
+
+At this exercise you should:
+
+- Build a contacts list app using React;
+- Use Redux to manage data;
+- Use Styled Components for styles;
+- Contacts should have the following information:
+  - Full name
+  - Email
+  - Phone
+- Features:
+  - Add
+  - Delete
+  - Edit
+- Build a brand new Github repository to store code
+
+
 
 Uses [Vite](https://vitejs.dev/), [Vitest](https://vitest.dev/), and [React Testing Library](https://github.com/testing-library/react-testing-library) to create a modern [React](https://react.dev/) app compatible with [Create React App](https://create-react-app.dev/)
 
