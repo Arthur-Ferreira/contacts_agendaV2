@@ -4,6 +4,7 @@ import { Provider } from "react-redux"
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 
 import App from "./App"
+import { ErrorPage } from "./features/contacts/ErrorPage"
 import { store } from "./app/store"
 
 import "./index.css"
@@ -12,6 +13,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <ErrorPage />
   },
 ])
 
