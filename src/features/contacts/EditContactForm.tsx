@@ -1,23 +1,28 @@
 import React, { useState } from "react"
-import { useAppDispatch } from "../../app/hooks"
-import { addContact } from "./contactsSlice"
-import { useNavigate } from "react-router-dom"
+import { useAppDispatch, useAppSelector } from "../../app/hooks"
+import { editContact } from "./contactsSlice"
+import { useNavigate, useParams } from "react-router-dom"
 
-export const AddContactForm = () => {
-  const dispatch = useAppDispatch()
+export const EditContactForm = () => {
   const navigate = useNavigate()
+  const { id } = useParams<string>()
 
-  const [name, setName] = useState("")
-  const [email, setEmail] = useState("")
-  const [phone, setPhone] = useState("")
+  const contact = useAppSelector(state =>
+    state.contactList.find(contact => contact.id === id),
+  )
+  const dispatch = useAppDispatch()
+
+  const [name, setName] = useState(contact?.name)
+  const [email, setEmail] = useState(contact?.email)
+  const [phone, setPhone] = useState(contact?.phone)
 
   const onNameChanged = (e: any) => setName(e.target.value)
   const onEmailChanged = (e: any) => setEmail(e.target.value)
   const onPhoneChanged = (e: any) => setPhone(e.target.value)
 
-  const handleClick = () => {
-    if (name && email && phone) {
-      dispatch(addContact(name, email, phone))
+  const onSaveContact = () => {
+    if (id && name && email && phone) {
+      dispatch(editContact({ id, name, email, phone }))
       navigate("/contacts")
     }
     setName("")
@@ -58,7 +63,7 @@ export const AddContactForm = () => {
             onChange={onPhoneChanged}
           />
         </p>
-        <button type="button" onClick={handleClick}>
+        <button type="button" onClick={onSaveContact}>
           Adicionar
         </button>
       </form>

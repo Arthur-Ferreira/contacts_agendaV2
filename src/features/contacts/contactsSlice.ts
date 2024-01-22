@@ -96,23 +96,27 @@ export const contactSlice = createSlice({
       }),
     },
     removeContact: (state, action: PayloadAction<string>) => {
-      const index = state.contactList.findIndex((contact) => contact.id === action.payload)
-      state.contactList.splice(index, 1)
+      const contactId = action.payload;
+      state.contactList = state.contactList.filter((contact) => contact.id !== contactId);
     },
-    // editContact(
-    //   state,
-    //   action: PayloadAction<{ completed: boolean, id: string }>
-    // ) {
-    //   const index = state.findIndex((contact) => contact.id === action.payload.id)
-    //   state[index].completed = action.payload.completed;
-    // },
+    editContact: (
+      state,
+      action: PayloadAction<{ id: string; name: string; email: string; phone: string }>) => {
+      const { id, name, email, phone } = action.payload
+      const existingContact = state.contactList.find((contact) => contact.id === id)
+      if (existingContact) {
+        existingContact.name = name
+        existingContact.email = email
+        existingContact.phone = phone
+      }
+    },
   }
 });
 
-export const { 
-  addContact, 
-  removeContact, 
-  // editContact
+export const {
+  addContact,
+  removeContact,
+  editContact
 } = contactSlice.actions
 
 export default contactSlice.reducer

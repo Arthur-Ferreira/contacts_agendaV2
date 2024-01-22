@@ -8,6 +8,7 @@ import { store } from "./app/store"
 import { ErrorPage } from "./features/contacts/ErrorPage"
 import { ContactDetail } from "./features/contacts/ContactDetail"
 import { AddContactForm } from "./features/contacts/ContactForm"
+import { EditContactForm } from "./features/contacts/EditContactForm"
 import { ContactsList } from "./features/contacts/ContactsList"
 
 import "./index.css"
@@ -38,7 +39,7 @@ const router = createBrowserRouter([
               },
               {
                 path: "edit",
-                element: "",
+                element: <EditContactForm />,
               },
               {
                 path: "delete",

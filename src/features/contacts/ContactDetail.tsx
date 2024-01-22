@@ -1,19 +1,30 @@
 import React from "react"
-import { Link, useParams } from "react-router-dom"
-import { useAppSelector } from "../../app/hooks"
+import { Link, useNavigate, useParams } from "react-router-dom"
+import { useAppDispatch, useAppSelector } from "../../app/hooks"
+import { removeContact } from "./contactsSlice"
 
 type ContactParams = {
   id: string
 }
 
 export const ContactDetail = () => {
+  const dispatch = useAppDispatch()
+  const navigate = useNavigate()
+
   const { id } = useParams<ContactParams>()
   const contact = useAppSelector(state =>
-    state.contactList.find(contact => contact.id === id)
+    state.contactList.find(contact => contact.id === id),
   )
 
-  if (!contact) {
-    return (<h2>Contact not Found</h2>)
+  if (!contact || !id) {
+    return <h2>Contact not Found</h2>
+  }
+
+  const onRemoveContact = () => {
+    if (id) {
+      dispatch(removeContact(id))
+    }
+    navigate('/contacts')
   }
 
   return (
@@ -21,8 +32,8 @@ export const ContactDetail = () => {
       <h2>{contact.name}</h2>
       <p>{contact.email}</p>
       <p>{contact.phone}</p>
-      <Link to={`${contact.id}/edit`}>Edit</Link>
-      <button>Delete</button>
+      <Link to={`edit`}>Edit</Link>
+      <button onClick={onRemoveContact}>Delete</button>
     </article>
   )
 }
