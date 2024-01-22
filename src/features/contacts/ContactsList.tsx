@@ -10,7 +10,7 @@ export const ContactsList = () => {
       <ol>
         {contacts.map(contact => (
           <li key={contact.id}>
-            <Link to={`/contacts/${contact.id}`} className="contacts">
+            <Link to={`${contact.id}`} className="contacts">
               <h3>{contact.name}</h3>
             </Link>
           </li>

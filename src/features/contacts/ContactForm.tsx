@@ -14,7 +14,12 @@ export const AddContactForm = () => {
   const onPhoneChanged = (e: any) => setPhone(e.target.value)
 
   const handleClick = () => {
-    dispatch(addContact(name, email, phone))
+    if (name && email && phone) {
+      dispatch(addContact(name, email, phone))
+    }
+    setName('')
+    setEmail('')
+    setPhone('')
   }
 
   return (

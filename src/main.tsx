@@ -4,8 +4,11 @@ import { Provider } from "react-redux"
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 
 import App from "./App"
-import { ErrorPage } from "./features/contacts/ErrorPage"
 import { store } from "./app/store"
+import { ErrorPage } from "./features/contacts/ErrorPage"
+import { ContactDetail } from "./features/contacts/ContactDetail"
+import { AddContactForm } from "./features/contacts/ContactForm"
+import { ContactsList } from "./features/contacts/ContactsList"
 
 import "./index.css"
 
@@ -16,9 +19,35 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "contacts/:id",
-        element: '',
-      }
+        path: "new",
+        element: <AddContactForm />,
+      },
+      {
+        path: "contacts",
+        children: [
+          {
+            index: true,
+            element: <ContactsList />,
+          },
+          {
+            path: ":id",
+            children: [
+              {
+                index: true,
+                element: <ContactDetail />,
+              },
+              {
+                path: "edit",
+                element: "",
+              },
+              {
+                path: "delete",
+                element: "",
+              },
+            ],
+          },
+        ],
+      },
     ],
   },
 ])

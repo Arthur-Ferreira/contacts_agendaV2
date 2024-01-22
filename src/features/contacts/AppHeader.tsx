@@ -1,30 +1,29 @@
 import React from "react"
-
-import { ContactsList } from "./ContactsList"
+import { NavLink } from "react-router-dom"
 
 export const AppHeader = () => {
   return (
     <>
-      <header className="App-header">
+      <header className="main-header">
         <div id="sidebar">
-          <h1>Contacts</h1>
-          <div>
-            <form id="search-form" role="search">
-              <input
-                id="q"
-                aria-label="Search contacts"
-                placeholder="Search"
-                type="search"
-                name="q"
-              />
-              <div id="search-spinner" aria-hidden hidden={true} />
-              <div className="sr-only" aria-live="polite"></div>
-            </form>
-            <form method="post">
-              <button type="submit">New</button>
-            </form>
+          <div className="logo">
+            <h1>Contacts</h1>
+            <nav>
+              <ul>
+                <li>
+                  <NavLink to={'/contacts'} className="nav-items">All Contacts</NavLink>
+                </li>
+                <li>
+                  <NavLink to={'/new'} className="nav-items">New Contact</NavLink>
+                </li>
+              </ul>
+            </nav>
+            <button id="mobile-menu-btn" type="button" title="Menu">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
           </div>
-          <ContactsList />
         </div>
       </header>
     </>
