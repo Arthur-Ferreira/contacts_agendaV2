@@ -31,7 +31,7 @@ export const EditContactForm = () => {
   }
 
   return (
-    <div className="App">
+    <main>
       <form>
         <p>
           <label htmlFor="name">Nome completo: </label>
@@ -67,6 +67,6 @@ export const EditContactForm = () => {
           Adicionar
         </button>
       </form>
-    </div>
+    </main>
   )
 }

@@ -6,7 +6,7 @@ export const ContactsList = () => {
   const contacts = useAppSelector(state => state.contactList)
 
   return (
-    <aside className="contacts-list">
+    <main className="contacts-list">
       <ol>
         {contacts.map(contact => (
           <li key={contact.id}>
@@ -16,6 +16,6 @@ export const ContactsList = () => {
           </li>
         ))}
       </ol>
-    </aside>
+    </main>
   )
 }

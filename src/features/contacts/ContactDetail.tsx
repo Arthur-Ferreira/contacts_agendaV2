@@ -24,16 +24,18 @@ export const ContactDetail = () => {
     if (id) {
       dispatch(removeContact(id))
     }
-    navigate('/contacts')
+    navigate("/contacts")
   }
 
   return (
-    <article>
-      <h2>{contact.name}</h2>
-      <p>{contact.email}</p>
-      <p>{contact.phone}</p>
-      <Link to={`edit`}>Edit</Link>
-      <button onClick={onRemoveContact}>Delete</button>
-    </article>
+    <main>
+      <article>
+        <h2>{contact.name}</h2>
+        <p>{contact.email}</p>
+        <p>{contact.phone}</p>
+        <Link to={`edit`}>Edit</Link>
+        <button onClick={onRemoveContact}>Delete</button>
+      </article>
+    </main>
   )
 }
