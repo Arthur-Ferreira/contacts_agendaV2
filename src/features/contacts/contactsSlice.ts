@@ -8,68 +8,7 @@ type initialStateType = {
   contactList: Contact[];
 }
 
-const contactList: Contact[] = [
-  {
-    id: nanoid(),
-    name: "Roger ndutiye",
-    email: "rogerndutiye@gmail.com",
-    phone: "250788841494",
-  },
-  {
-    id: nanoid(),
-    name: "Stacy ndutiye",
-    email: "stacyndutiye@gmail.com",
-    phone: "250738841494",
-  },
-  {
-    id: nanoid(),
-    name: "Joe Kalisa",
-    email: "Joe.Kalisa@gmail.com",
-    phone: "250738841491",
-  },
-  {
-    id: nanoid(),
-    name: "Ange Keza",
-    email: "ange.keza@gmail.com",
-    phone: "250738841491",
-  },
-  {
-    id: nanoid(),
-    name: "Roger ndutiye",
-    email: "rogerndutiye@gmail.com",
-    phone: "250788841494",
-  },
-  {
-    id: nanoid(),
-    name: "Stacy ndutiye",
-    email: "stacyndutiye@gmail.com",
-    phone: "250738841494",
-  },
-  {
-    id: nanoid(),
-    name: "Joe Kalisa",
-    email: "Joe.Kalisa@gmail.com",
-    phone: "250738841491",
-  },
-  {
-    id: nanoid(),
-    name: "Ange Keza",
-    email: "ange.keza@gmail.com",
-    phone: "250738841491",
-  },
-  {
-    id: nanoid(),
-    name: "Joe Kalisa",
-    email: "Joe.Kalisa@gmail.com",
-    phone: "250738841491",
-  },
-  {
-    id: nanoid(),
-    name: "Ange Keza",
-    email: "ange.keza@gmail.com",
-    phone: "250738841491",
-  },
-];
+const contactList: Contact[] = [];
 
 
 const initialState: initialStateType = {
