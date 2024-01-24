@@ -1,16 +1,16 @@
 import React from "react"
-import { createRoot } from "react-dom/client"
 import { Provider } from "react-redux"
+import { createRoot } from "react-dom/client"
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 
 import App from "./App"
 import { store } from "./app/store"
-import { ErrorPage } from "./features/contacts/ErrorPage"
-import { ContactDetail } from "./features/contacts/ContactDetail"
-import { AddContactForm } from "./features/contacts/ContactForm"
-import { EditContactForm } from "./features/contacts/EditContactForm"
-import { ContactsList } from "./features/contacts/ContactsList"
-import { RootLayout } from "./features/contacts/RootLayout"
+import { ErrorPage } from "./components/Templates/ErrorPage"
+import ContactDetail from "./components/Templates/ContactDetail"
+import AddContactForm from "./components/Templates/ContactForm"
+import EditContactForm from "./components/Templates/EditContactForm"
+import ContactsList from "./components/Templates/ContactsList"
+import RootLayout from "./components/Templates/RootLayout"
 
 import "./index.css"
 

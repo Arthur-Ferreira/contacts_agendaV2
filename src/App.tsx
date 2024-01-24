@@ -1,9 +1,8 @@
 import React from "react"
 import { Outlet } from "react-router-dom"
 
-import { AppHeader } from "./features/contacts/AppHeader"
+import AppHeader from "./components/Molecules/AppHeader"
 
-import "./App.css"
 import GlobalStyle from "./components/GlobalStyle"
 
 const App = () => {

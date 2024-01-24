@@ -1,16 +1,23 @@
 import React, { useState } from "react"
-import { useAppDispatch, useAppSelector } from "../../app/hooks"
-import { editContact } from "./contactsSlice"
-import { useNavigate, useParams } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
-export const EditContactForm = () => {
-  const navigate = useNavigate()
-  const { id } = useParams<string>()
+import type { Contact } from "../../../../features/contacts/Contact"
+import { useAppDispatch } from "../../../../app/hooks"
+import { editContact } from "../../../../features/contacts/contactsSlice"
+import AppContainer from "../../../Atoms/AppContainer"
+import Button from "../../../Atoms/Button"
 
-  const contact = useAppSelector(state =>
-    state.contactList.find(contact => contact.id === id),
-  )
+import { StyledForms, StyledLabel, StyledInput } from "../styles"
+
+export default function EditForm({
+  contact,
+}: {
+  contact: Contact
+}): JSX.Element {
   const dispatch = useAppDispatch()
+  const navigate = useNavigate()
+
+  const id = contact.id
 
   const [name, setName] = useState(contact?.name)
   const [email, setEmail] = useState(contact?.email)
@@ -31,42 +38,45 @@ export const EditContactForm = () => {
   }
 
   return (
-    <main>
-      <form>
+    <AppContainer>
+      <StyledForms>
         <p>
-          <label htmlFor="name">Nome completo: </label>
-          <input
+          <StyledLabel htmlFor="name">Nome completo: </StyledLabel>
+          <StyledInput
             type="text"
             id="name"
             name="name"
             value={name}
             onChange={onNameChanged}
+            required
           />
         </p>
         <p>
-          <label htmlFor="email">E-mail: </label>
-          <input
+          <StyledLabel htmlFor="email">E-mail: </StyledLabel>
+          <StyledInput
             type="email"
             id="email"
             name="email"
             value={email}
             onChange={onEmailChanged}
+            required
           />
         </p>
         <p>
-          <label htmlFor="phone">Telefone: </label>
-          <input
+          <StyledLabel htmlFor="phone">Telefone: </StyledLabel>
+          <StyledInput
             type="tel"
             id="phone"
             name="phone"
             value={phone}
             onChange={onPhoneChanged}
+            required
           />
         </p>
-        <button type="button" onClick={onSaveContact}>
+        <Button type="button" onClick={onSaveContact}>
           Adicionar
-        </button>
-      </form>
-    </main>
+        </Button>
+      </StyledForms>
+    </AppContainer>
   )
 }

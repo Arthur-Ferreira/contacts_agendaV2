@@ -8,6 +8,10 @@ const MobileBtn = styled.button`
   cursor: pointer;
   height: 2.25rem;
   background-color: transparent;
+
+  @media (min-width: 48rem) {
+    display: none;
+  }
 `
 
 const MobileSpan = styled.span`

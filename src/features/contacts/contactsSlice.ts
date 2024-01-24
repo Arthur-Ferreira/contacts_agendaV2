@@ -1,6 +1,5 @@
 import { createSlice, nanoid } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
-import type { RootState } from '../../app/store'
 
 import type { Contact } from "./Contact";
 
