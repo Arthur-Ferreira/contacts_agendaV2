@@ -35,7 +35,7 @@ export default function AddForm() {
       <h1>Add New Contact</h1>
       <StyledForms>
         <p>
-          <StyledLabel htmlFor="name">Nome completo: </StyledLabel>
+          <StyledLabel htmlFor="name">Full name:</StyledLabel>
           <StyledInput
             type="text"
             id="name"
@@ -46,7 +46,7 @@ export default function AddForm() {
           />
         </p>
         <p>
-          <StyledLabel htmlFor="email">E-mail: </StyledLabel>
+          <StyledLabel htmlFor="email">Email:</StyledLabel>
           <StyledInput
             type="email"
             id="email"
@@ -57,7 +57,7 @@ export default function AddForm() {
           />
         </p>
         <p>
-          <StyledLabel htmlFor="phone">Telefone: </StyledLabel>
+          <StyledLabel htmlFor="phone">Phone number:</StyledLabel>
           <StyledInput
             type="tel"
             id="phone"
@@ -68,7 +68,7 @@ export default function AddForm() {
           />
         </p>
         <Button type="button" onClick={handleClick}>
-          Adicionar
+          Create
         </Button>
       </StyledForms>
     </AppContainer>
