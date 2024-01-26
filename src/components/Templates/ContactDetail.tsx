@@ -20,7 +20,7 @@ export default function ContactDetail() {
     <main>
       <AppContainer>
         <h1>Contact Information</h1>
-        <ContactItem contact={contact} />
+        { contact && <ContactItem contact={contact} />}
       </AppContainer>
     </main>
   )

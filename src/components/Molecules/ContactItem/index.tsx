@@ -12,16 +12,16 @@ import Button from "../../Atoms/Button"
 export default function ContactItem({
   contact,
 }: {
-  contact: Contact
+  contact: Contact | undefined;
 }): JSX.Element {
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
 
-  const id = contact.id
-
-  if (!contact || !id) {
+  if (!contact) {
     return <h2>Contact not Found</h2>
   }
+
+  const id = contact.id
 
   const onRemoveContact = () => {
     if (id) {
@@ -36,7 +36,9 @@ export default function ContactItem({
       <Paragraph>{contact.phone}</Paragraph>
       <Actions>
         <Anchor to={`edit`}>Edit</Anchor>
-        <Button type="button" onClick={onRemoveContact}>Delete</Button>
+        <Button type="button" onClick={onRemoveContact}>
+          Delete
+        </Button>
       </Actions>
     </Article>
   )

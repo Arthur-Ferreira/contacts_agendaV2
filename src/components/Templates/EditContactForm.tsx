@@ -12,7 +12,7 @@ export default function EditContactForm() {
   )
   return (
     <main>
-      <EditForm contact={contact} />
+      {contact && <EditForm contact={contact} />}
     </main>
   )
 }
